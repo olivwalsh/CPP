@@ -4,34 +4,36 @@ GREEN		= "\033[1;32m"
 RESET		= "\033[m"
 
 # Variables
-NAME		= phonebook
-CFLAGS		= -Wall -Wextra -Werror
-CPPFLAGS	= -std=c++98
-CC			= c++
+NAME 		= phonebook
+CC 			= c++ -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -g3
 
-SRC			= main.cpp PhoneBook.class.cpp Contact.class.cpp 
+OBJDIR 		= objs/
 
-OBJ		= $(addprefix ${OBJ_DIR}, ${SRC:.cpp=.o})
+SRC			=	main.cpp \
+				PhoneBook.class.cpp \
+				Contact.class.cpp
 
-# Rules
-all : $(NAME)
+OBJ 		= $(addprefix ${OBJDIR}, ${SRC:.cpp=.o})
 
-$(OBJ)%.o : $(SRC)
-	@mkdir -p ${@D}
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+all: $(NAME) 
+
+$(OBJDIR)%.o : $(SRCDIR)%.cpp
+	mkdir -p ${@D}
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJ) -o  $@
-	@echo -n "Compiling " $(NAME)
-	@echo $(GREEN)"\tOK"$(RESET)
+	@echo -n "Compiling phonebook"
+	@$(CC) $(CXXFLAGS) $(OBJ)  $(MLXLIBX) -o $@
+	@echo ${GREEN}"\t\tOK"${RESET}
 
 clean :
-	rm -rf $(OBJ)
+	rm -rf $(OBJDIR)
 
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
 
-re : fclean all
+re: fclean all
 	make all
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re
