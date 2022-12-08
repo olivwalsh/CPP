@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:28:46 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/08 17:29:25 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/08 18:31:36 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int	main()
 	PhoneBook	phonebook;
 	std::string	input;
 
-	while (true)
+	std::cout << "Awesome Phonebook: what would you like to do? (ADD, SEARCH or EXIT)" << std::endl;
+	while (std::getline(std::cin, input))
 	{
-		std::cout << "Awesome Phonebook: what would you like to do? (ADD, SEARCH or EXIT)" << std::endl;
-		std::cin >> input;
 		if (!input.compare("ADD"))
 		{
 			std::cout << "Add a contact" << std::endl;
@@ -36,6 +35,7 @@ int	main()
 			break;
 		else
 			std::cout << "unknown command" << std::endl;
+		std::cout << "Awesome Phonebook: what would you like to do? (ADD, SEARCH or EXIT)" << std::endl;
 	}
 	phonebook.displayPhoneBook();
 	return (0);

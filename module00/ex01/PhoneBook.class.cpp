@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:26:32 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/08 17:31:12 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/08 18:31:23 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ void	PhoneBook::addContact()
 
 void	PhoneBook::displayPhoneBook()
 {
-	std::cout << "PhoneBook contains following contact" << std::endl;
-	for (int i = 0; i < PhoneBook::contactsNb; i++)
-		PhoneBook::contacts[i].displayContact();
+	if (PhoneBook::contactsNb == 0)
+		std::cout << "No contacts in PhoneBook" << std::endl;
+	else
+	{
+		std::cout << "PhoneBook contains following contact" << std::endl;
+		for (int i = 0; i < PhoneBook::contactsNb; i++)
+			PhoneBook::contacts[i].displayContact();
+	}
 }
