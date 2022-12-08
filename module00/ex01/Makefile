@@ -6,7 +6,7 @@ RESET		= "\033[m"
 # Variables
 NAME 		= phonebook
 CC 			= c++ -std=c++98
-CXXFLAGS	= -Wall -Wextra -Werror -g3
+CXXFLAGS	= -Wall -Wextra -Werror
 
 OBJDIR 		= objs/
 

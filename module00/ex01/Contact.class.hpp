@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:24:34 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/06 19:27:19 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/08 17:25:26 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,19 @@
 class Contact
 {
 	private:
-		std::string name;
+		std::string firstName;
+		std::string lastName;
+		std::string	nickname;
+		std::string	phoneNumber;
+		std::string	darkestSecret;
 
 	public:
 		Contact(void);
+		Contact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string	darkestSecret);
 		~Contact(void);
+		// void	setFirstName(std::string name);
+		void	displayContact();
+		
 
 };
 

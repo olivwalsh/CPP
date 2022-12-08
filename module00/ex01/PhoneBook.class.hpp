@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:23:54 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/08 13:09:41 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/08 17:27:07 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ public:
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		Contact	contacts[9];
-
+		Contact	contacts[8];
+		int		contactsNb;
+		
+		void	addContact();
+		void	displayPhoneBook();
+		
 };
 
 #endif
