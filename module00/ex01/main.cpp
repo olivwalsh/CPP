@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:28:46 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/08 18:31:36 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/08 19:29:32 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main()
 	{
 		if (!input.compare("ADD"))
 		{
-			std::cout << "Add a contact" << std::endl;
 			phonebook.addContact();
 		}
 		else if (!input.compare("SEARCH"))
@@ -33,8 +32,6 @@ int	main()
 		}
 		else if (!input.compare("EXIT"))
 			break;
-		else
-			std::cout << "unknown command" << std::endl;
 		std::cout << "Awesome Phonebook: what would you like to do? (ADD, SEARCH or EXIT)" << std::endl;
 	}
 	phonebook.displayPhoneBook();
