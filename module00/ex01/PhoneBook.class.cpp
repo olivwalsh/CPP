@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:26:32 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/09 11:52:11 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/09 19:04:50 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,10 @@ void	PhoneBook::searchContact()
 		convert << input;
 		convert >> index;
 		if (input.empty())
-			std::cout << "This field cannot be empty!" <<std::endl;
+			std::cout << "No index provided!" <<std::endl;
 		else if (!std::all_of(input.begin(), input.end(), ::isdigit))
 			std::cout << "Input is not numeric" <<std::endl;
-		else if (index > PhoneBook::contactsNb)
+		else if (index >= PhoneBook::contactsNb)
 			std::cout << "Index is out of range" << std::endl;
 		else
 			break;
@@ -110,7 +110,7 @@ std::string	displayColumn(std::string text)
 	if (textLen > 10)
 		text = text.substr(0, 9) + ".";
 	if (textLen < 10)
-		text = spaces.substr(textLen, 10);
+		spaces = spaces.substr(textLen, 10);
 	else
 		spaces = spaces.substr(0, 0);
 	return (text + spaces);
