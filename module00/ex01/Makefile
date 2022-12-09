@@ -8,6 +8,11 @@ NAME 		= phonebook
 CC 			= c++ -std=c++98
 CXXFLAGS	= -Wall -Wextra -Werror
 
+# Compilation flags
+ifeq ($(DMEM),1)
+CC 			+= -fsanitize=address -fno-omit-frame-pointer
+endif
+
 OBJDIR 		= objs/
 
 SRC			=	main.cpp \
