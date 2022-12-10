@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:28:46 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/09 11:38:51 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/10 17:15:32 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main()
 		std::cout << "\033[1;36m\u2794 \033[m Awesome Phonebook: what would you like to do? (ADD, SEARCH or EXIT)" << std::endl;
 		std::getline(std::cin, input);
 		if (std::cin.eof()) 
-			exit (1);
+			return (1);
 		if (!input.compare("ADD"))
 			phonebook.addContact();
 		else if (!input.compare("SEARCH"))

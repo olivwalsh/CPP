@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:23:54 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/09 11:39:01 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/10 17:28:33 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class PhoneBook
 {
-public:
+	public:
 
 		PhoneBook(void);
 		~PhoneBook(void);
