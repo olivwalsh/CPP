@@ -6,12 +6,13 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:41:23 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/09 18:49:43 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/10 17:47:57 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
+#include <time.h>
 #include "Account.hpp"
 
 
@@ -122,10 +123,14 @@ int Account::getNbWithdrawals( void )
 
 void Account::_displayTimestamp( void )
 {
-	time_t	now;
+	time_t		now;
+	struct tm * timeinfo;
+  	char		timestamp[80];
 
-	now = time(NULL);
-	std::cout << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S] ");
+	time(&now);
+	timeinfo = localtime(&now);
+	strftime(timestamp, 80, "[%Y%m%d_%H%M%S] ", timeinfo);
+	std::cout << timestamp;
 }
 
 void Account::displayAccountsInfos( void )
