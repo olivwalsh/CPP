@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:30:45 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/13 18:27:03 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/13 18:35:31 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@ class	HumanB
 			: 	_name(name),
 				_weapon(&weapon) {};
 		~HumanB();
-		void		attack( void );
+		
 		std::string	getName() { return _name; };
 		Weapon		getWeapon() { return *_weapon; };
 		void		setWeapon( Weapon &weapon );
+		
+		void		attack( void );
 };
 
 #endif
