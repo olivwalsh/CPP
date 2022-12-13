@@ -10,7 +10,7 @@ CXXFLAGS	= -Wall -Wextra -Werror
 
 # Compilation flags
 ifeq ($(DMEM),1)
-CC 			+= -fsanitize=address -fno-omit-frame-pointer
+CC 			+= -fsanitize=leak -fno-omit-frame-pointer
 endif
 
 OBJDIR 		= objs/
@@ -29,7 +29,7 @@ $(OBJDIR)%.o : $(SRCDIR)%.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo -n "Compiling phonebook"
+	@echo -n "Compiling " $(NAME)
 	@$(CC) $(CXXFLAGS) $(OBJ)  $(MLXLIBX) -o $@
 	@echo ${GREEN}"\t\tOK"${RESET}
 
