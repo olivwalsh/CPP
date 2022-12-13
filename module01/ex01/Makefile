@@ -5,12 +5,12 @@ RESET		= "\033[m"
 
 # Variables
 NAME 		= zombiehorde
-CC 			= c++ -std=c++98
+CC 			= c++ -std=c++98 -g3
 CXXFLAGS	= -Wall -Wextra -Werror
 
 # Compilation flags
 ifeq ($(DMEM),1)
-CC 			+= -fsanitize=leak -fno-omit-frame-pointer
+CC 			+= -fsanitize=address -fno-omit-frame-pointer
 endif
 
 OBJDIR 		= objs/
