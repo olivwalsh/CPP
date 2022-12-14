@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:31:02 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/14 17:10:01 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/14 22:46:23 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ Harl::Harl()
 Harl::~Harl()
 {
 	
+}
+
+int	Harl::getLevel(std::string filterLevel)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (Harl::which[i].level == filterLevel)
+			return (i);
+	}
+	return (-1);
 }
 
 void Harl::complain( std::string level)
