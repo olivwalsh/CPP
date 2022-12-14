@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:31:07 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/14 17:05:05 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/14 17:08:36 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,31 @@ int	main(int argc, char **argv)
 			break;
 		}
 		case DEBUG:
+		{
 			harlou.complain("debug");
-		case INFO:
 			harlou.complain("info");
-		case WARNING:
 			harlou.complain("warning");
-		case ERROR:
 			harlou.complain("error");
+			break;
+		}
+		case INFO:
+		{
+			harlou.complain("info");
+			harlou.complain("warning");
+			harlou.complain("error");
+			break;
+		}
+		case WARNING:
+		{
+			harlou.complain("warning");
+			harlou.complain("error");
+			break;
+		}
+		case ERROR:
+		{
+			harlou.complain("error");
+			break;	
+		}
 	}
 	return (0);
 }

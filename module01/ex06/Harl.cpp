@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:31:02 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/14 16:58:42 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/14 17:10:01 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,28 @@ void Harl::complain( std::string level)
 
 void Harl::debug( void )
 {
-	std::cout << BOLD << "debug: \n" << RESET <<
+	std::cout << BOLD << "[ DEBUG ] \n" << RESET <<
 	"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger.\nI really do !" \
 	<< std::endl;
 }
 
 void Harl::info( void )
 {
-	std::cout << BLUE << "info: \n" << RESET <<
+	std::cout << BLUE << "[ INFO ] \n" << RESET <<
 	"I cannot believe adding extra bacon costs more money.\nYou didn’t put enough bacon in my burger !\nIf you did, I wouldn’t be asking for more !" \
 	<< std::endl;
 }
 
 void Harl::warning( void )
 {
-	std::cout << YELLOW << "warning: \n" << RESET <<
+	std::cout << YELLOW << "[ WARNING ] \n" << RESET <<
 	"I think I deserve to have some extra bacon for free.\nI’ve been coming for years whereas you started working here since last month" \
 	<< std::endl;
 }
 
 void Harl::error( void )
 {
-	std::cout << RED << "error: \n" << RESET <<
+	std::cout << RED << "[ ERROR ] \n" << RESET <<
 	"This is unacceptable !\nI want to speak to the manager now." \
 	<< std::endl;
 }

@@ -6,7 +6,7 @@ RESET		= "\033[m"
 # Variables
 NAME 		= HarlFilter
 CC 			= c++ -std=c++98 -g3
-CXXFLAGS	= -Wall -Wextra 
+CXXFLAGS	= -Wall -Wextra -Werror
 
 # Compilation flags
 ifeq ($(DMEM),1)
