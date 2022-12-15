@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:30:40 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/13 18:34:25 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/15 17:07:44 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ class	HumanA
 	public:
 		HumanA(const std::string name, Weapon& weapon);
 		~HumanA();
-		
-		std::string	getName() { return _name; };
-		Weapon		getWeapon() { return _weapon; };
 		
 		void		attack( void );
 		
