@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:30:56 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/14 22:43:03 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/15 22:18:51 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	checkLine(std::string &line, std::string s1, std::string s2)
 {
 	std::size_t ind;
 	
-	do
+	for (int i = 0; line[i]; i++)
 	{
 		ind = line.find(s1);
 		if(ind != std::string::npos)
 		{
 			line.erase(ind,s1.length());
 			line.insert(ind, s2);
+			i += ind + s2.length();
 		}
 	}
-	while (ind != std::string::npos);
 }
 
 void	read_file(std::string filename, std::string s1, std::string s2)

@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:31:07 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/14 22:46:57 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/15 22:16:49 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,13 @@ int	main(int argc, char **argv)
 	switch (level)
 	{
 		case DEBUG:
-		{
 			harlou.complain("debug");
-			harlou.complain("info");
-			harlou.complain("warning");
-			harlou.complain("error");
-			break;
-		}
 		case INFO:
-		{
 			harlou.complain("info");
-			harlou.complain("warning");
-			harlou.complain("error");
-			break;
-		}
 		case WARNING:
-		{
 			harlou.complain("warning");
-			harlou.complain("error");
-			break;
-		}
 		case ERROR:
-		{
 			harlou.complain("error");
-			break;	
-		}
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:30:30 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/15 17:11:34 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/15 22:19:09 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ Zombie* zombieHorde( int N, std::string name )
 	Zombie*	zombieHorde = new Zombie[N];
 
 	for (int i = 0; i < N; i++)
-		zombieHorde[i] = Zombie(name);
+		zombieHorde[i].setName(name);
 	return (zombieHorde);
 }
