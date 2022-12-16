@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:20:21 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/15 13:06:18 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/16 14:34:57 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,22 @@ class Fixed
 		Fixed operator*( Fixed const & rhs );
 		Fixed operator/( Fixed const & rhs );
 
-		bool operator>( Fixed const & rhs);
-		bool operator<( Fixed const & rhs);
-		bool operator>=( Fixed const & rhs);
-		bool operator<=( Fixed const & rhs);
-		bool operator==( Fixed const & rhs);
-		bool operator!=( Fixed const & rhs);
+		bool operator>( Fixed const & rhs) const;
+		bool operator<( Fixed const & rhs) const;
+		bool operator>=( Fixed const & rhs) const;
+		bool operator<=( Fixed const & rhs) const;
+		bool operator==( Fixed const & rhs) const;
+		bool operator!=( Fixed const & rhs) const;
+
+		Fixed operator++( void );
+		Fixed operator++( int );
+		Fixed operator--( void );
+		Fixed operator--( int );
+
+		static Fixed &min( Fixed & f1, Fixed & f2);
+		static const Fixed &min( Fixed const & f1, Fixed const & f2);
+		static Fixed &max( Fixed & f1, Fixed & f2);
+		static const Fixed &max( Fixed const & f1, Fixed const & f2);
 		
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );

@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:20:51 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/15 13:10:14 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/16 14:37:07 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,44 +79,44 @@ std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
 //---------------- EX 02 ----------------
 
 
-bool Fixed::operator>( Fixed const & rhs)
+bool Fixed::operator>( Fixed const & rhs) const
 {
-	if (this->_raw_bits > rhs.getRawBits())
+	if (this->toFloat() > rhs.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator<( Fixed const & rhs)
+bool Fixed::operator<( Fixed const & rhs) const
 {
-	if (this->_raw_bits < rhs.getRawBits())
+	if (this->toFloat() < rhs.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator>=( Fixed const & rhs)
+bool Fixed::operator>=( Fixed const & rhs) const
 {
-	if (this->_raw_bits >= rhs.getRawBits())
+	if (this->toFloat() >= rhs.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator<=( Fixed const & rhs)
+bool Fixed::operator<=( Fixed const & rhs) const
 {
-	if (this->_raw_bits <= rhs.getRawBits())
+	if (this->toFloat() <= rhs.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator==( Fixed const & rhs)
+bool Fixed::operator==( Fixed const & rhs) const
 {
-	if (this->_raw_bits == rhs.getRawBits())
+	if (this->toFloat() == rhs.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator!=( Fixed const & rhs)
+bool Fixed::operator!=( Fixed const & rhs) const
 {
-	if (this->_raw_bits != rhs.getRawBits())
+	if (this->toFloat() != rhs.toFloat())
 		return (true);
 	return (false);
 }
@@ -134,4 +134,66 @@ Fixed Fixed::operator*( Fixed const & rhs)
 Fixed Fixed::operator/( Fixed const & rhs)
 {
 	return Fixed(this->toFloat() / rhs.toFloat());
+}
+
+// pre increment
+Fixed Fixed::operator++( void )
+{
+	++_raw_bits;
+	return *this;
+}
+
+// post increment
+Fixed Fixed::operator++( int )
+{
+	Fixed temp = *this;
+	++*this;
+	return temp;
+}
+
+// pre increment
+Fixed Fixed::operator--( void )
+{
+	--_raw_bits;
+	return *this;
+}
+
+// post increment
+Fixed Fixed::operator--( int )
+{
+	Fixed temp = *this;
+	--*this;
+	return temp;
+}
+
+const Fixed &Fixed::max( Fixed const & f1, Fixed const & f2)
+{
+	
+	if (f1 > f2)
+		return f1;
+	return f2;
+}
+
+const Fixed &Fixed::min( Fixed const & f1, Fixed const & f2)
+{
+	
+	if (f1 < f2)
+		return f1;
+	return f2;
+}
+
+Fixed &Fixed::max( Fixed & f1, Fixed & f2)
+{
+	
+	if (f1.toFloat() > f2.toFloat())
+		return f1;
+	return f2;
+}
+
+Fixed &Fixed::min( Fixed & f1, Fixed & f2)
+{
+	
+	if (f1.toFloat() < f2.toFloat())
+		return f1;
+	return f2;
 }
