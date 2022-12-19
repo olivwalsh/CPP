@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:20:51 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/16 14:37:07 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 15:53:30 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //---------------- EX 00 ----------------
 Fixed::Fixed() : _raw_bits( 0 )
 {
-	this->_raw_bits = 0;
+
 }
 
 Fixed::Fixed( Fixed const & rhs )
@@ -126,6 +126,11 @@ Fixed Fixed::operator+( Fixed const & rhs)
 	return Fixed(this->toFloat() + rhs.toFloat());
 }
 
+Fixed Fixed::operator-( Fixed const & rhs)
+{
+	return Fixed(this->toFloat() - rhs.toFloat());
+}
+
 Fixed Fixed::operator*( Fixed const & rhs)
 {
 	return Fixed(this->toFloat() * rhs.toFloat());
@@ -136,10 +141,12 @@ Fixed Fixed::operator/( Fixed const & rhs)
 	return Fixed(this->toFloat() / rhs.toFloat());
 }
 
+// https://en.cppreference.com/w/cpp/language/operator_incdec
+
 // pre increment
-Fixed Fixed::operator++( void )
+Fixed & Fixed::operator++( void )
 {
-	++_raw_bits;
+	this->setRawBits(this->getRawBits() + 1);
 	return *this;
 }
 
@@ -147,22 +154,24 @@ Fixed Fixed::operator++( void )
 Fixed Fixed::operator++( int )
 {
 	Fixed temp = *this;
-	++*this;
+	
+	this->setRawBits(this->getRawBits() + 1);
 	return temp;
 }
 
-// pre increment
-Fixed Fixed::operator--( void )
+// pre decrement
+Fixed & Fixed::operator--( void )
 {
-	--_raw_bits;
+	this->setRawBits(this->getRawBits() -1);
 	return *this;
 }
 
-// post increment
+// post decrement
 Fixed Fixed::operator--( int )
 {
 	Fixed temp = *this;
-	--*this;
+	
+	this->setRawBits(this->getRawBits() - 1);
 	return temp;
 }
 

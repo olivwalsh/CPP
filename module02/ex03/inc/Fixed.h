@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:20:21 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/19 14:34:28 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 15:54:16 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Fixed
 		Fixed & operator=( Fixed const & rhs ); // Canonical
 		
 		Fixed operator+( Fixed const & rhs );
+		Fixed operator-( Fixed const & rhs );
 		Fixed operator*( Fixed const & rhs );
 		Fixed operator/( Fixed const & rhs );
 
@@ -42,9 +43,9 @@ class Fixed
 		bool operator==( Fixed const & rhs) const;
 		bool operator!=( Fixed const & rhs) const;
 
-		Fixed operator++( void );
+		Fixed & operator++( void );
 		Fixed operator++( int );
-		Fixed operator--( void );
+		Fixed & operator--( void );
 		Fixed operator--( int );
 
 		static Fixed &min( Fixed & f1, Fixed & f2);

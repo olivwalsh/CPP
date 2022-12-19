@@ -6,14 +6,12 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:19:42 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/19 15:20:00 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 15:59:01 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.h"
 #include "Point.h"
-
-#define TESTS 7
 
 int main( void ) 
 {
@@ -26,7 +24,7 @@ int main( void )
 	std::cout << "Triangle edge C (" << c.getX() << "," << c.getY() << ")" << std::endl;
 	std::cout << std::endl;
 	
-	Point			*points = new Point[TESTS];
+	Point			*points = new Point[7];
 
 	points[0] = Point(10, 15);
 	points[1] = Point(30, 15);
@@ -37,12 +35,12 @@ int main( void )
 	points[6] = Point(10, 29);
 
 
-	for (int i = 0; i < TESTS; ++i) {
+	for (int i = 0; i < 7; ++i) {
 		std::cout << "init (" << points[i].getX() << ", " << points[i].getY() << ")" << std::endl;
 	}
 	std::cout << std::endl;
 
-	for (int i = 0; i < TESTS; ++i) {
+	for (int i = 0; i < 7; ++i) {
 		std::cout << "point (" << points[i].getX() << ", " << points[i].getY() << ") ";
 		if (bsp(a, b, c, points[i]))
 			std::cout << "is inside." << std::endl;
