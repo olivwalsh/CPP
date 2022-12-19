@@ -6,12 +6,15 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:20:21 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/16 17:39:27 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 14:34:28 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cmath>
+
+#ifndef FIXED_H
+#define FIXED_H
 
 class Fixed
 {
@@ -58,3 +61,4 @@ class Fixed
 
 // Cannot be a member function since ostream is an existing class
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
+#endif

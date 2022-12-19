@@ -6,18 +6,18 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:08:10 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/17 21:13:57 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 14:17:11 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.h"
 
-Point::Point() : x(0), y(0) 
+Point::Point() : _x(0), _y(0) 
 {
 	
 }
 
-Point::Point( const float x1, const float y1) : x(x1), y(y1)
+Point::Point( const float x, const float y) : _x(x), _y(y)
 {
 
 }
@@ -29,6 +29,14 @@ Point::Point ( const Point & rhs)
 
 Point & Point::operator=( const Point & rhs )
 {
+	// if (this == &rhs)
+	// 	return *this;
+	
+	Fixed *x = (Fixed *)&this->_x;
+	Fixed *y = (Fixed *)&this->_y;
+	
+	*x = rhs._x;
+	*y = rhs._y;
 	return *this;
 }
 
@@ -37,12 +45,12 @@ Point::~Point()
 	
 }
 
-const Fixed Point::getX()
+const Fixed Point::getX() const
 {
-	return x;
+	return _x;
 }
 
-const Fixed Point::getY()
+const Fixed Point::getY() const
 {
-	return y;
+	return _y;
 }
