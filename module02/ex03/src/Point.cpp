@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:08:10 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/19 14:17:11 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 15:12:15 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ Point::~Point()
 	
 }
 
-const Fixed Point::getX() const
+float Point::getX() const
 {
-	return _x;
+	return _x.toFloat();
 }
 
-const Fixed Point::getY() const
+float Point::getY() const
 {
-	return _y;
+	return _y.toFloat();
 }

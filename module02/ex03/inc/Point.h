@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:08:15 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/19 14:34:04 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 15:11:06 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Point
 
 		Point & operator=( const Point & rhs );
 
-		const Fixed getX() const;
-		const Fixed getY() const;
+		float getX() const;
+		float getY() const;
 
 };
 
