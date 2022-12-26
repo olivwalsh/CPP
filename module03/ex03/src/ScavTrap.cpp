@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:46:44 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/22 15:28:04 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/26 13:12:44 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap " << _name << " was born!" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap & rhs)
+ScavTrap::ScavTrap(const ScavTrap & rhs) : ClapTrap(rhs)
 {
-	*this = rhs;	
 	std::cout << "ScavTrap " << _name << " was born!" << std::endl;
 }
 
