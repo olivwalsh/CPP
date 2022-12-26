@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:08:10 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/19 15:12:15 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 16:46:54 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ Point::Point ( const Point & rhs)
 
 Point & Point::operator=( const Point & rhs )
 {
-	// if (this == &rhs)
-	// 	return *this;
-	
 	Fixed *x = (Fixed *)&this->_x;
 	Fixed *y = (Fixed *)&this->_y;
 	

@@ -6,17 +6,20 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:20:21 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/14 18:54:43 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 15:54:57 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
+#ifndef FIXED_H
+#define FIXED_H
+
 class Fixed
 {
 	private:
 		int					_rawBits;
-		static const int	_remainder = 8;
+		const static int	_remainder;
 		
 	public:
 		Fixed();
@@ -24,10 +27,9 @@ class Fixed
 		~Fixed();
 		
 		Fixed & operator=( Fixed const & rhs );
-		// Fixed	operator+( Fixed const & rhs ) const;
 
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 };
 
-
+#endif

@@ -6,12 +6,15 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:20:21 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/16 14:34:57 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 16:11:24 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cmath>
+
+#ifndef FIXED_H
+#define FIXED_H
 
 class Fixed
 {
@@ -28,9 +31,10 @@ class Fixed
 		
 		Fixed & operator=( Fixed const & rhs ); // Canonical
 		
-		Fixed operator+( Fixed const & rhs );
-		Fixed operator*( Fixed const & rhs );
-		Fixed operator/( Fixed const & rhs );
+		Fixed operator+( Fixed const & rhs ) const;
+		Fixed operator-( Fixed const & rhs ) const;
+		Fixed operator*( Fixed const & rhs ) const;
+		Fixed operator/( Fixed const & rhs ) const;
 
 		bool operator>( Fixed const & rhs) const;
 		bool operator<( Fixed const & rhs) const;
@@ -39,9 +43,9 @@ class Fixed
 		bool operator==( Fixed const & rhs) const;
 		bool operator!=( Fixed const & rhs) const;
 
-		Fixed operator++( void );
+		Fixed & operator++( void );
 		Fixed operator++( int );
-		Fixed operator--( void );
+		Fixed & operator--( void );
 		Fixed operator--( int );
 
 		static Fixed &min( Fixed & f1, Fixed & f2);
@@ -58,3 +62,5 @@ class Fixed
 
 // Cannot be a member function since ostream is an existing class
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
+
+#endif

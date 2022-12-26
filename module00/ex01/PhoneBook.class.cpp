@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:26:32 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/10 17:58:01 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/15 19:07:05 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ std::string	addInput(std::string info)
 	{
 		std::cout << info;
 		std::getline (std::cin,input);
-		if (std::cin.eof()) 
+		if (std::cin.eof())
 			quick_exit (1);
 		if (input.empty())
 			std::cout << "This field cannot be empty!" <<std::endl;

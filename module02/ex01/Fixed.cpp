@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:20:51 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/15 12:32:33 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/19 15:31:33 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Fixed::Fixed() : _raw_bits( 0 )
 {
-	this->_raw_bits = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -74,5 +73,7 @@ void Fixed::setRawBits( int const raw )
 
 Fixed::~Fixed()
 {
-	std::cout << "Deconstructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
+
+const int Fixed::_fixed_point_fractional_bits = 8;
