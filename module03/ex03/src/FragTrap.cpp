@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:34:04 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/22 15:51:03 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/26 13:13:02 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	_attack_damage = 30;
 }
 
-FragTrap::FragTrap(const FragTrap & rhs)
+FragTrap::FragTrap(const FragTrap & rhs) : ClapTrap(rhs)
 {
-	*this = rhs;
 	std::cout << "FragTrap " << _name << " was born!" << std::endl;
 }
 
