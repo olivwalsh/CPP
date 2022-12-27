@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:02:51 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/27 13:04:51 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/27 13:38:40 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,27 +51,35 @@ int main()
 		animals[0]->setIdea(i, str1);	// because dogs are better than cats
 	}
 
-	Cat		*ricky = new Cat(dynamic_cast<Cat*>(*animals[6]));
-	// Cat		rico;
+	// Check wether setIdea works properly
+	// std::cout << "-- Display Ideas --" << std::endl;
+	// j = 0;
+	// for (; j < NB_ANIMALS; j++)
+	// {
+	// 	std::cout << "Animal n." << j << " (" << animals[j]->getType() << ")" << std::endl;
+	// 	for (int i = 0; i < NB_IDEAS; i++)
+	// 		std::cout << " idea n." << i << ": " << animals[j]->getIdea(i);
+	// 	std::cout << std::endl;
+	// }
+	// std::cout << std::endl;
+
+
+	// testing copy constructor
+	Cat        *ricky = new Cat(*(dynamic_cast<Cat*>(animals[NB_ANIMALS - 1])));
 	
-	for (int i = 0; i < NB_IDEAS / 10; i++) 
+	for (int i = 0; i < NB_IDEAS; i++) 
 		std::cout << "ricky: " << ricky->getIdea(i) << std::endl;
 	
-	// testing copy assignment operator
-	// rico = *ricky;
-	// rico.setIdea(0, "lol");
-	// for (int i = 0; i < NB_IDEAS / 10; i++)
-	// 	std::cout << "by copy: " << rico.getIdea(i) << std::endl;
+	// testing assignment operator
+	Cat		rico;
+	rico = *ricky;
 	
-	// ricky->setIdea(0, "lolilol");
-	
-	// // testing copy ref constructor
-	// rico = Cat(*ricky);
-	// for (int i = 0; i < NB_IDEAS / 10; i++)
-	// 	std::cout << "by ref: " << rico.getIdea(i) << std::endl;
+	rico.setIdea(0, "lol");
+	for (int i = 0; i < NB_IDEAS; i++)
+		std::cout << "by copy: " << rico.getIdea(i) << std::endl;
 	
 	
-	// delete ricky;
+	delete ricky;
 
 	/*
 		Vous devez delete directement 
