@@ -6,16 +6,13 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:02:51 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/26 20:38:32 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/27 13:04:51 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include "Brain.hpp"
 
 #define NB_ANIMALS 10
@@ -24,7 +21,7 @@ int main()
 {
 	std::string		str1 = "great idea!";
 	std::string		str2 = "bad idea!";
-	Animal *animals[NB_ANIMALS];
+	Animal 			*animals[NB_ANIMALS];
 
 	/*
 		créez et remplissez un tableau d’objets Animal 
@@ -54,24 +51,24 @@ int main()
 		animals[0]->setIdea(i, str1);	// because dogs are better than cats
 	}
 
-	Cat		*ricky = new Cat(animals[NB_ANIMALS - 1]);
+	Cat		*ricky = new Cat(dynamic_cast<Cat*>(*animals[6]));
 	// Cat		rico;
 	
-	// for (int i = 0; i < NB_IDEAS / 10; i++) 
-	// 	std::cout << "ricky: " << ricky->getIdea(i) << std::endl;
+	for (int i = 0; i < NB_IDEAS / 10; i++) 
+		std::cout << "ricky: " << ricky->getIdea(i) << std::endl;
 	
-	// // testing copy assignment operator
-	// // rico = *ricky;
-	// // rico.setIdea(0, "lol");
-	// // for (int i = 0; i < NB_IDEAS / 10; i++)
-	// // 	std::cout << "by copy: " << rico.getIdea(i) << std::endl;
+	// testing copy assignment operator
+	// rico = *ricky;
+	// rico.setIdea(0, "lol");
+	// for (int i = 0; i < NB_IDEAS / 10; i++)
+	// 	std::cout << "by copy: " << rico.getIdea(i) << std::endl;
 	
-	// // ricky->setIdea(0, "lolilol");
+	// ricky->setIdea(0, "lolilol");
 	
-	// // // testing copy ref constructor
-	// // rico = Cat(*ricky);
-	// // for (int i = 0; i < NB_IDEAS / 10; i++)
-	// // 	std::cout << "by ref: " << rico.getIdea(i) << std::endl;
+	// // testing copy ref constructor
+	// rico = Cat(*ricky);
+	// for (int i = 0; i < NB_IDEAS / 10; i++)
+	// 	std::cout << "by ref: " << rico.getIdea(i) << std::endl;
 	
 	
 	// delete ricky;

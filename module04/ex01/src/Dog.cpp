@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:07 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/26 19:14:13 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/27 12:53:45 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ Dog::Dog() : Animal("Dog"), _brain(new Brain)
 	std::cout << "A Dog has been created" << std::endl;
 }
 
-Dog::Dog(const Dog & rhs )
+Dog::Dog(const Dog & rhs ) : Animal(rhs)
 {
-	// this->_brain = new Brain(*(rhs._brain));
-	*this = rhs;
+	this->_brain = new Brain(*(rhs._brain)); // deep copy
+	// *this = rhs; // shallow copy
 	std::cout << "A Dog has been created" << std::endl;
 }
 
@@ -32,6 +32,8 @@ Dog::~Dog()
 Dog & Dog::operator=( const Dog & rhs)
 {
 	_type = rhs.getType();
+	for (int i = 0; i < NB_IDEAS; i++)
+		_brain->setIdea(i, rhs._brain->getIdea(i));
 	std::cout << "A Dog has been created" << std::endl;
 	return *this;
 }
