@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:07 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/27 12:53:45 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/27 13:43:58 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Dog::Dog(const Dog & rhs ) : Animal(rhs)
 
 Dog::~Dog()
 {
+	delete _brain;
 	std::cout << "A Dog has been destroyed" << std::endl;
 }
 

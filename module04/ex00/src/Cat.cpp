@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:09 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/26 17:50:10 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/27 14:03:40 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ Cat::Cat() : Animal("Cat")
 	std::cout << "A Cat has been created" << std::endl;
 }
 
-Cat::Cat( const Cat & rhs )
+Cat::Cat( const Cat & rhs ) : Animal(rhs)
 {
-	*this = rhs;
 	std::cout << "A Cat has been created" << std::endl;
 }
 

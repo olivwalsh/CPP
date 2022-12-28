@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:10:09 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/26 19:21:54 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/27 13:56:47 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,22 @@ Brain & Brain::operator=( const Brain & rhs )
 
 std::string Brain::getIdea(int index) const
 {
+	if (index < 0 || index > NB_IDEAS)
+	{
+		std::cout << "You did not provide an idea index ranging from 0 to 99" << std::endl;
+		std::cout << "Will return first idea, as default" << std::endl;
+		return (_ideas[0]);
+	}
 	return (_ideas[index]);
 }
 
 void	Brain::setIdea(int index, std::string idea)
 {
+	if (index < 0 || index > NB_IDEAS)
+	{
+		std::cout << "You did not provide an idea index ranging from 0 to 99" << std::endl;
+		std::cout << "Will change content of first idea, as default" << std::endl;
+		_ideas[0] = idea;
+	}
 	_ideas[index] = idea;
 }

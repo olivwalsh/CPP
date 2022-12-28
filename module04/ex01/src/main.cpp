@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:02:51 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/27 13:38:40 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/27 16:21:59 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 
 int main()
 {
-	std::string		str1 = "great idea!";
-	std::string		str2 = "bad idea!";
 	Animal 			*animals[NB_ANIMALS];
 
 	/*
@@ -46,9 +44,10 @@ int main()
 	}
 	std::cout << std::endl;
 	
-	for (int i = 0; i < NB_IDEAS; i++) {
-		animals[NB_ANIMALS - 1]->setIdea(i, str2);
-		animals[0]->setIdea(i, str1);	// because dogs are better than cats
+	for (int i = 0; i < NB_IDEAS; i++) 
+	{
+		animals[NB_ANIMALS - 1]->setIdea(i, "bad idea!");
+		animals[0]->setIdea(i, "great idea!");	// because dogs are better than cats
 	}
 
 	// Check wether setIdea works properly
@@ -65,21 +64,26 @@ int main()
 
 
 	// testing copy constructor
-	Cat        *ricky = new Cat(*(dynamic_cast<Cat*>(animals[NB_ANIMALS - 1])));
+	Cat        *minou = new Cat(*(dynamic_cast<Cat*>(animals[NB_ANIMALS - 1])));
 	
-	for (int i = 0; i < NB_IDEAS; i++) 
-		std::cout << "ricky: " << ricky->getIdea(i) << std::endl;
+	minou->setIdea(0, "lol");
+	for (int i = 0; i < NB_IDEAS; i++)
+	{
+		std::cout << "minou: " << minou->getIdea(i);
+		std::cout << "\tanimals[NB_ANIMALS - 1]: " << animals[NB_ANIMALS - 1]->getIdea(i) << std::endl;	
+	}
 	
 	// testing assignment operator
-	Cat		rico;
-	rico = *ricky;
+	Cat		garfield;
+	garfield = *minou;
 	
-	rico.setIdea(0, "lol");
+	garfield.setIdea(0, "lol");
 	for (int i = 0; i < NB_IDEAS; i++)
-		std::cout << "by copy: " << rico.getIdea(i) << std::endl;
+		std::cout << "garfield: " << garfield.getIdea(i) << std::endl;
+	std::cout << std::endl;
 	
 	
-	delete ricky;
+	delete minou;
 
 	/*
 		Vous devez delete directement 
