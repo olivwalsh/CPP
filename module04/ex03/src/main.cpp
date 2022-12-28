@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:50:02 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/28 17:07:02 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:43:52 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int main() {
 	delete bob;
 	delete me;
 	delete src;
-	return 0;
 	
 	return 0;
 }

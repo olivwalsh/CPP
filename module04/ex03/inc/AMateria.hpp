@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:18:11 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/28 17:37:20 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:59:23 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AMateria
 	public:
 		AMateria(std::string const & type);
 		AMateria( const AMateria & rhs );
-		~AMateria();
+		virtual ~AMateria();
 		
 		AMateria & operator=( const AMateria & rhs );
 	
