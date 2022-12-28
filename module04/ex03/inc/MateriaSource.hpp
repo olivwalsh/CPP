@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 14:18:11 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/28 17:37:20 by owalsh           ###   ########.fr       */
+/*   Created: 2022/12/28 14:30:14 by owalsh            #+#    #+#             */
+/*   Updated: 2022/12/28 17:33:24 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef MATERIA_SOURCE_HPP
+# define MATERIA_SOURCE_HPP
 
 # include <iostream>
-# include <sys/types.h>
-# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
-class ICharacter;
-
-class AMateria
+class MateriaSource : public IMateriaSource
 {
 	public:
-		AMateria(std::string const & type);
-		AMateria( const AMateria & rhs );
-		~AMateria();
+		MateriaSource(void);
+		MateriaSource( const MateriaSource & rhs );
+		virtual ~MateriaSource(void);
 		
-		AMateria & operator=( const AMateria & rhs );
-	
-		std::string const & 	getType() const;
-		virtual AMateria*		clone() const = 0;
-		virtual void 			use(ICharacter& target);
-	
-	protected:
-		std::string _type;
+		MateriaSource & operator=( const MateriaSource & rhs );
+		
+		void		learnMateria(AMateria* material);
+		AMateria*	createMateria(std::string const & type);
+
+	private:
+		AMateria	*_materials[4];
+		
 };
 
 #endif
