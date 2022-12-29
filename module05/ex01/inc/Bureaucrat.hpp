@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:13:38 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/29 15:19:45 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/29 16:14:31 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 # include <stdexcept>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -31,6 +34,7 @@ class Bureaucrat
 
 		void		lowerGrade();
 		void		upperGrade();
+		void		signForm(const Form &);
 
 		const static int	lowestGrade = 150;
 		const static int	highestGrade = 1;
