@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:27:09 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 15:49:05 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/30 17:26:38 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,54 @@
 
 # include <iostream>
 # include "Bureaucrat.hpp"
+# include <cstdlib>
+# include <ctime>
 
 class Bureaucrat;
 
 class Form
 {
 	public:
-		Form(std::string name, const int grade_to_sign, const int grade_to_execute);
+		Form(std::string name, const int grade_to_sign, const int grade_to_execute, std::string target);
 		Form( const Form & rhs );
 		virtual ~Form();
 
 		Form & operator=( const Form & rhs );
 
 		const std::string	getName() const;
+		std::string			getTarget() const;
 		bool				isSigned() const;
 		int					getSignatureGrade() const;
 		int					getExecutionGrade() const;
 
 		void				beSigned( const Bureaucrat & ref );
+		void				beExecuted( const Bureaucrat & ref ) const;
 		virtual void		execute(Bureaucrat const & executor) const = 0;
 
-	private:	
+	private:
 		const std::string	_name;
+		std::string			_target;
 		bool				_signed;
 		const int			_grade_to_sign;
 		const int			_grade_to_execute;
 	
 	public:
-		class GradeTooLowException : public std::exception
+		class FormException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw() = 0;
+		};
+		class GradeTooLowException : public FormException
 		{
 			public:
 				virtual const char * what() const throw();
 		};
-		class GradeTooHighException : public std::exception
+		class GradeTooHighException : public FormException
 		{
 			public:
 				virtual const char * what() const throw();
 		};
-		class FormIsNotSignedException : public std::exception
+		class FormIsNotSignedException : public FormException
 		{
 			public:
 				virtual const char * what() const throw();

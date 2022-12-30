@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:21:03 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 15:56:22 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/30 17:56:48 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,44 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+#define RED(s) "\033[1;31m" s "\033[m"
+#define GREEN(s) "\033[1;32m" s "\033[m"
+#define YELLOW(s) "\033[1;33m" s "\033[m"
+#define BLUE(s) "\033[1;34m" s "\033[m"
+#define PURPLE(s) "\033[1;35m" s "\033[m"
+
+void	testRobotomy()
+{
+	RobotomyRequestForm		original("28B");
+	RobotomyRequestForm		form("jkh");
+	Bureaucrat				luc("Luc", 70);
+	Bureaucrat				boss("Boss", 1);
+
+	form = original;
+	std::cout << form << std::endl;
+	std::cout << std::endl;
+	
+	std::cout << BLUE("Luc tries to execute form RobotomyRequest") << std::endl;
+	luc.executeForm(form);
+	std::cout << std::endl;
+	
+	std::cout << BLUE("Luc tries to sign form RobotomyRequest first") << std::endl;
+	luc.signForm(form);
+	std::cout << std::endl;
+	
+	std::cout << BLUE("Now that it is signed, Luc tries to execute form once again") << std::endl;
+	luc.executeForm(form);
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	std::cout << BLUE("Hence, Boss will now try to execute form RobotomyRequest") << std::endl;
+	boss.executeForm(form);
+	std::cout << std::endl;
+}
+
 int	main(void)
 {
-	Form			*form = NULL;
-	Bureaucrat		bob("bob", 1);
-	Bureaucrat		phil("phil", 40);
-	Bureaucrat		luc("luc", 150);
-
-	// try
-	// {
-	// 	form = new PresidentialPardonForm("28A");
-	// 	form->execute(bob);
-	// 	delete form;
-	// 	form = NULL;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
-
-	try
-	{
-		form = new RobotomyRequestForm("28B");
-		form->execute(phil);
-		delete form;
-		form = NULL;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-
-	// try
-	// {
-	// 	form = new ShrubberyCreationForm("28C");
-	// 	form->execute(luc);
-	// 	delete form;
-	// 	form = NULL;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
-	// bob.executeForm(PresidentialPardonForm("45GCD"));
-	// phil.executeForm(PresidentialPardonForm("45GCD"));
-
-	bob.executeForm(RobotomyRequestForm("74A"));
-	phil.executeForm(RobotomyRequestForm("74A"));
-	
-	// phil.executeForm(ShrubberyCreationForm("T408"));
+	testRobotomy();
 
 	return 0;
 }

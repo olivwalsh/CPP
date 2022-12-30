@@ -6,14 +6,15 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:27:28 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 15:53:20 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/30 17:08:12 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(std::string name, const int grade_to_sign, const int grade_to_execute)
+Form::Form(std::string name, const int grade_to_sign, const int grade_to_execute, std::string target)
 	:	_name(name),
+		_target(target),
 		_signed(false),
 		_grade_to_sign(grade_to_sign),
 		_grade_to_execute(grade_to_execute)
@@ -28,6 +29,7 @@ Form::Form(std::string name, const int grade_to_sign, const int grade_to_execute
 
 Form::Form( const Form & rhs)
 	:	_name(rhs.getName()),
+		_target(rhs.getTarget()),
 		_signed(rhs.isSigned()),
 		_grade_to_sign(rhs.getSignatureGrade()),
 		_grade_to_execute(rhs.getExecutionGrade())
@@ -45,6 +47,7 @@ Form & Form::operator=(const Form & rhs)
 	int			*_grade_to_execute = (int *)&this->_grade_to_execute;
 
 	_signed = rhs.isSigned();
+	_target = rhs.getTarget();
 	*_name = rhs.getName();
 	*_grade_to_sign = rhs.getSignatureGrade();
 	*_grade_to_execute = rhs.getExecutionGrade();
@@ -54,6 +57,11 @@ Form & Form::operator=(const Form & rhs)
 const std::string Form::getName() const
 {
 	return _name;
+}
+
+std::string	Form::getTarget() const
+{
+	return _target;
 }
 
 bool Form::isSigned() const
@@ -85,6 +93,14 @@ void Form::beSigned( const Bureaucrat & ref )
 	if (ref.getGrade() <= this->getSignatureGrade())
 		this->_signed = true;
 	else
+		throw Form::GradeTooLowException();
+}
+
+void Form::beExecuted( const Bureaucrat & ref ) const
+{
+	if (!this->isSigned())
+		throw Form::FormIsNotSignedException();
+	if (ref.getGrade() > this->getExecutionGrade())
 		throw Form::GradeTooLowException();
 }
 
