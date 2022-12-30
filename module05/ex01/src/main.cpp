@@ -6,11 +6,12 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:21:03 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/29 15:57:58 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/30 12:20:09 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
@@ -23,7 +24,6 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-
 
 	try
 	{

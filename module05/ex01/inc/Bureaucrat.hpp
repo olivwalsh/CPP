@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:13:38 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/29 16:14:31 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/30 12:22:18 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat
 
 		void		lowerGrade();
 		void		upperGrade();
-		void		signForm(const Form &);
+		void		signForm( Form &);
 
 		const static int	lowestGrade = 150;
 		const static int	highestGrade = 1;

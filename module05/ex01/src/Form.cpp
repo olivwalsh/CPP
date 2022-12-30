@@ -6,35 +6,49 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:27:28 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/29 16:17:26 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/30 12:25:23 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 Form::Form(std::string name, const int grade_to_sign, const int grade_to_execute)
-	:	_name(name), _signed(false), \
-		_grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
+	:	_name(name),
+		_signed(false),
+		_grade_to_sign(grade_to_sign),
+		_grade_to_execute(grade_to_execute)
 {
-	std::cout << "Form " << name << " was created" << std::endl;
+	if (grade_to_sign < Bureaucrat::highestGrade
+		|| grade_to_execute < Bureaucrat::highestGrade)
+		throw Form::GradeTooHighException();
+	else if (grade_to_sign > Bureaucrat::lowestGrade
+		|| grade_to_execute > Bureaucrat::lowestGrade)
+		throw Form::GradeTooLowException();
 }
 
 Form::Form( const Form & rhs)
+	:	_name(rhs.getName()),
+		_signed(rhs.isSigned()),
+		_grade_to_sign(rhs.getSignatureGrade()),
+		_grade_to_execute(rhs.getExecutionGrade())
 {
-	*this = rhs;
 }
 
 Form::~Form()
 {
-	
 }
 
 Form & Form::operator=(const Form & rhs)
 {
-	_name = rhs.getName();
+	std::string *_name = (std::string *)&this->_name;
+	int			*_grade_to_sign = (int *)&this->_grade_to_sign;
+	int			*_grade_to_execute = (int *)&this->_grade_to_execute;
+
 	_signed = rhs.isSigned();
-	_grade_to_sign = rhs.getSignatureGrade();
-	_grade_to_execute = rhs.getExecutionGrade();
+	*_name = rhs.getName();
+	*_grade_to_sign = rhs.getSignatureGrade();
+	*_grade_to_execute = rhs.getExecutionGrade();
+	return *this;
 }
 
 const std::string Form::getName() const
@@ -60,12 +74,9 @@ int Form::getExecutionGrade() const
 std::ostream & operator<<(std::ostream & o, const Form & ref)
 {
 	o << "Form " << ref.getName();
-	if (ref.isSigned())
-		o << " is signed ";
-	else
-		o << " is not signed";
-	o << ". Minimum grade required to sign this form is: " << ref.getSignatureGrade();
-	o << ". Minimum grade required to execute this form is: " << ref.getExecutionGrade();
+	o << " is " << (ref.isSigned() ? "" : "not ") << "signed";
+	o << ".\ngrade to sign: " << ref.getSignatureGrade();
+	o << "\ngrade to execute: " << ref.getExecutionGrade() << std::endl;
 	return o;
 }
 
@@ -79,5 +90,10 @@ void Form::beSigned( const Bureaucrat & ref )
 
 const char * Form::GradeTooLowException::what() const throw()
 {
-	return "Bureaucrat's grade is too low to sign this form";
+	return "Grade too low!";
+}
+
+const char * Form::GradeTooHighException::what() const throw()
+{
+	return "Grade too high!";
 }

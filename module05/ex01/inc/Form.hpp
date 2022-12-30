@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:27:09 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/29 16:14:17 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/30 12:03:46 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ class Form
 	
 	public:
 		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char * what() const throw();
