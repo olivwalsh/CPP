@@ -4,7 +4,7 @@ GREEN		= "\033[1;32m"
 RESET		= "\033[m"
 
 # Variables
-NAME 		= Intern
+NAME 		= intern
 CC 			= c++ -std=c++98 -g3
 CXXFLAGS	= -Wall -Wextra -Werror
 
