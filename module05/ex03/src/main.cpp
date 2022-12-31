@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:21:03 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 20:12:11 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/31 14:53:15 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(void)
 	delete rrf;
 
 	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+	boss.signForm(*rrf);
 	boss.executeForm(*rrf);
 	// rrf->execute(Bureaucrat("lucas", 1));
 	delete rrf;

@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:27:09 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 12:03:46 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/31 14:09:06 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Bureaucrat;
 class Form
 {
 	public:
+		Form(void);
 		Form(std::string name, const int grade_to_sign, const int grade_to_execute);
 		Form( const Form & rhs );
 		~Form();

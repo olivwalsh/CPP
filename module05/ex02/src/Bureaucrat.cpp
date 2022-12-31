@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:13:29 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 17:28:44 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/31 15:06:15 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade)
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat & rhs )
+	: _name(rhs._name), _grade(rhs._grade)
 {
-	*this = rhs;	
 	std::cout << "Bureaucrat was created by copy" << std::endl;
 }
-
 Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << "Bureaucrat was destroyed" << std::endl;
@@ -40,7 +39,6 @@ Bureaucrat::~Bureaucrat(void)
 
 Bureaucrat & Bureaucrat::operator=( const Bureaucrat & rhs )
 {
-	_name = rhs.getName();
 	_grade = rhs.getGrade();
 	std::cout << "Bureaucrat was assigned to another Bureaucrat" << std::endl;
 	return *this;
@@ -108,7 +106,7 @@ void Bureaucrat::executeForm(Form const & form)
 	try
 	{
 		form.execute(*this);
-		std::cout << this->getName() << " executed " << form.getName();
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	}
 	catch(Form::FormException & e)
 	{

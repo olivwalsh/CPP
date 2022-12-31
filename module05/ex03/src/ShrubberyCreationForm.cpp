@@ -6,14 +6,27 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:29:22 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 19:25:19 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/31 14:25:55 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
+ShrubberyCreationForm::ShrubberyCreationForm(void)
+	: Form("Shrubbery Creation", 145, 137, "untitled target")
+{
+	
+}
+
+		
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: Form("Shrubbery Creation", 145, 137, target)
+{
+	
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & rhs )
+	: Form(rhs)
 {
 	
 }
@@ -21,6 +34,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
 	
+}
+
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs)
+{
+	Form::operator=(rhs);
+	return *this;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const

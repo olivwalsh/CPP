@@ -6,11 +6,20 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:27:28 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 12:25:23 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/31 14:11:58 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+Form::Form(void)
+	:	_name("untitled"),
+		_signed(false),
+		_grade_to_sign(Bureaucrat::lowestGrade),
+		_grade_to_execute(Bureaucrat::lowestGrade)
+{
+
+}
 
 Form::Form(std::string name, const int grade_to_sign, const int grade_to_execute)
 	:	_name(name),
@@ -40,14 +49,14 @@ Form::~Form()
 
 Form & Form::operator=(const Form & rhs)
 {
-	std::string *_name = (std::string *)&this->_name;
-	int			*_grade_to_sign = (int *)&this->_grade_to_sign;
-	int			*_grade_to_execute = (int *)&this->_grade_to_execute;
+	// std::string *_name = (std::string *)&this->_name;
+	// int			*_grade_to_sign = (int *)&this->_grade_to_sign;
+	// int			*_grade_to_execute = (int *)&this->_grade_to_execute;
 
 	_signed = rhs.isSigned();
-	*_name = rhs.getName();
-	*_grade_to_sign = rhs.getSignatureGrade();
-	*_grade_to_execute = rhs.getExecutionGrade();
+	// *_name = rhs.getName();
+	// *_grade_to_sign = rhs.getSignatureGrade();
+	// *_grade_to_execute = rhs.getExecutionGrade();
 	return *this;
 }
 
@@ -82,7 +91,9 @@ std::ostream & operator<<(std::ostream & o, const Form & ref)
 
 void Form::beSigned( const Bureaucrat & ref )
 {
-	if (ref.getGrade() <= this->getSignatureGrade())
+	if (_signed)
+		std::cout << "Form is already signed!" << std::endl;
+	else if (ref.getGrade() <= this->getSignatureGrade())
 		this->_signed = true;
 	else
 		throw Form::GradeTooLowException();

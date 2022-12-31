@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:27:09 by owalsh            #+#    #+#             */
-/*   Updated: 2022/12/30 17:26:38 by owalsh           ###   ########.fr       */
+/*   Updated: 2022/12/31 14:17:48 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class Bureaucrat;
 class Form
 {
 	public:
-		Form(std::string name, const int grade_to_sign, const int grade_to_execute, std::string target);
+		Form(void);
+		Form(std::string name, const int grade_to_sign, const int grade_to_execute);
 		Form( const Form & rhs );
 		virtual ~Form();
 
@@ -39,6 +40,9 @@ class Form
 		void				beExecuted( const Bureaucrat & ref ) const;
 		virtual void		execute(Bureaucrat const & executor) const = 0;
 
+	protected:
+		Form(std::string name, const int grade_to_sign, const int grade_to_execute, std::string target);
+		
 	private:
 		const std::string	_name;
 		std::string			_target;
