@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:46:52 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/03 19:04:24 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/03 19:06:05 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int main(void)
         numbers[i] = value;
         mirror[i] = value;
     }
+	std::cout << BLUE("-- size of numbers --") << std::endl;
+	std::cout << numbers.size() << std::endl;
+
 	std::cout << BLUE("-- printing numbers at initialization --") << std::endl;
 	numbers.print();
 
