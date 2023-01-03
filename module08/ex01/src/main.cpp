@@ -5,26 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 13:39:49 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/02 16:26:43 by owalsh           ###   ########.fr       */
+/*   Created: 2023/01/03 21:01:14 by owalsh            #+#    #+#             */
+/*   Updated: 2023/01/03 21:01:24 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-
-int	main(void)
+int main()
 {
-	Base	*ptr = generate();
-	Base	&ref = *ptr;
-
-	std::cout << "Identify by ptr: ";
-	identify(ptr);
-	
-	std::cout << "Identify by ref: ";
-	identify(ref);
-
-	delete ptr;
-
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 	return 0;
 }
-

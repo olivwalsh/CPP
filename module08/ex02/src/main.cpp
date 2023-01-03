@@ -5,26 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 13:39:49 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/02 16:26:43 by owalsh           ###   ########.fr       */
+/*   Created: 2023/01/03 21:01:45 by owalsh            #+#    #+#             */
+/*   Updated: 2023/01/03 21:01:56 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-
-int	main(void)
+int main()
 {
-	Base	*ptr = generate();
-	Base	&ref = *ptr;
-
-	std::cout << "Identify by ptr: ";
-	identify(ptr);
-	
-	std::cout << "Identify by ref: ";
-	identify(ref);
-
-	delete ptr;
-
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+	std::cout << *it << std::endl;
+	++it;
+	}
+	std::stack<int> s(mstack);
 	return 0;
 }
-

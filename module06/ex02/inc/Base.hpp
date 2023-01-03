@@ -6,11 +6,9 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:38:54 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/02 14:15:07 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/02 16:26:29 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#pragma once
 
 # include <iostream>
 # include <cstdlib>
