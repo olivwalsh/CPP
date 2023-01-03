@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:46:52 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/03 19:06:05 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/03 19:17:06 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 int main(void)
 {
     Array<int> numbers(MAX_VAL);
+    Array<int> empty;
+	
     int* mirror = new int[MAX_VAL];
 
 	srand((unsigned) time(NULL));
@@ -28,6 +30,14 @@ int main(void)
         numbers[i] = value;
         mirror[i] = value;
     }
+	std::cout << BLUE("-- constructing numbers as an array of specific size --") << std::endl;
+	std::cout << BLUE("-- constructing empty as an empty array --") << std::endl;
+	
+	std::cout << BLUE("-- size of empty --") << std::endl;
+	std::cout << empty.size() << std::endl;
+	std::cout << BLUE("-- printing empty at initialization --") << std::endl;
+	empty.print();
+	
 	std::cout << BLUE("-- size of numbers --") << std::endl;
 	std::cout << numbers.size() << std::endl;
 
@@ -38,7 +48,7 @@ int main(void)
         Array<int> tmp = numbers;
         Array<int> test(tmp);
 
-		std::cout << BLUE("-- printing test --") << std::endl;
+		std::cout << BLUE("-- printing test as copy of numbers --") << std::endl;
 		test.print();
     }
 
