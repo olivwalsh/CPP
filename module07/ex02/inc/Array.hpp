@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 20:40:00 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/03 19:00:38 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/03 19:07:46 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Array
 		
 		T & 	operator[](const int index)
 		{
-			if (index < 0 || index >= _size)
+			if (!_array || index < 0 || index >= _size)
 				throw OutOfRange();
 			return _array[index];
 		}
@@ -46,7 +46,9 @@ class Array
 		T		size(void) const { return _size; }
 		
 		void	print()
-		{ 
+		{
+			if (_array)
+				return;
 			for (int i = 0; i < _size; i++)
 				std::cout << _array[i] << std::endl;
 		}
