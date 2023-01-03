@@ -6,42 +6,53 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:46:52 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/02 17:46:53 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/03 19:04:24 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <Array.hpp>
 
-#define MAX_VAL 750
-int main(int, char**)
+#define MAX_VAL 15
+#define GREEN(s) "\033[1;32m" s "\033[m"
+#define BLUE(s) "\033[1;34m" s "\033[m"
+
+int main(void)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
+
+	srand((unsigned) time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
+	std::cout << BLUE("-- printing numbers at initialization --") << std::endl;
+	numbers.print();
+
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
+
+		std::cout << BLUE("-- printing test --") << std::endl;
+		test.print();
     }
+
+	std::cout << BLUE("-- testing if values have been assigned correctly --") << std::endl;
 
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
         {
-            std::cerr << "didn't save the same value!!" << std::endl;
+            std::cerr << "not the same value" << std::endl;
             return 1;
         }
     }
+	std::cout << BLUE("-- trying to access array at different index --") << std::endl;
     try
     {
-        numbers[-2] = 0;
+        std::cout << "numbers[-2] = " << numbers[-2] << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -49,17 +60,21 @@ int main(int, char**)
     }
     try
     {
-        numbers[MAX_VAL] = 0;
+        std::cout << "numbers[MAX_VAL] = " << numbers[MAX_VAL + 5] << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+	try
+    {
+        std::cout << "numbers[MAX_VAL - 1] = " << numbers[MAX_VAL - 1] << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }

@@ -5,12 +5,12 @@ RESET		= "\033[m"
 
 # Variables
 NAME 		= template
-CXX 		= c++ -std=c++98 -g3
-CXXFLAGS	= -Wall -Wextra -Werror
+CXX 		= c++ 
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
 
 # Compilation flags
 ifeq ($(DMEM),1)
-CC 			+= -fsanitize=address -fno-omit-frame-pointer
+CXX 			+= -fsanitize=address -fno-omit-frame-pointer
 endif
 
 OBJDIR 		= objs/
@@ -26,11 +26,11 @@ all: $(NAME)
 
 $(OBJDIR)%.o : $(SRCDIR)%.cpp
 	mkdir -p ${@D}
-	$(CC) $(CXXFLAGS) $(INC) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INC) -c $< -o $@
 
 $(NAME) : $(OBJ)
 	@echo -n "Compiling " $(NAME)
-	@$(CC) $(CXXFLAGS) $(INC) $(OBJ) -o $@
+	@$(CXX) $(CXXFLAGS) $(INC) $(OBJ) -o $@
 	@echo ${GREEN}"\t\tOK"${RESET}
 
 clean :

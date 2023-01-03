@@ -6,13 +6,21 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:32:35 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/02 20:39:48 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/03 18:08:00 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include "iter.hpp"
 
-int main( void ) {
+#define SIZE 10
 
+int	main(void)
+{
+	int		array[SIZE];
+	
+	for (int i = 0; i < SIZE; ++i)
+		array[i] = i;
+	
+	iter(array, SIZE, print);
 	return 0;
 }
