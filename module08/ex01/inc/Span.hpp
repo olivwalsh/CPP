@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 21:01:25 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/04 18:36:12 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/04 19:26:28 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Span
 		std::vector<int> const & getList() const;
 
 		void	addNumber(int n);
-		void	addMultipleNumbersAtOnce(int rangeFrom, int rangeTo);
+		void	addMultipleNumbersAtOnce(std::vector<int>::const_iterator, std::vector<int>::const_iterator);
 		int		shortestSpan();
 		int		longestSpan();
 

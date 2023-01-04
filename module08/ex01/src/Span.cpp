@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 21:01:28 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/04 18:35:27 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/04 19:27:58 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,9 @@ void Span::addNumber(int n)
 	_list.push_back(n);
 }
 
-int generateRandomNumber(void)
+void Span::addMultipleNumbersAtOnce(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
 {
-	return (std::rand() % 100);
-}
-
-void Span::addMultipleNumbersAtOnce(int size, int value)
-{
-    _list.insert(_list.begin(), size, value);
+    _list.insert(_list.begin(), begin, end);
     if (_list.size() > _max_size)
         _list.resize(_max_size);
 }

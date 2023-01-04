@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 21:01:14 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/04 18:33:46 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/04 19:27:06 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,14 @@ int main(void)
 	
 	std::cout << BLUE("Lets create a new list and add multiple numbers at once:") << std::endl;
 	Span newList(10);
-	
-	newList.addMultipleNumbersAtOnce(2, 5);
-	sp.addMultipleNumbersAtOnce(2, 5);
+	newList.addNumber(42);
+	std::vector<int>::const_iterator begin = sp.getList().begin();
+	std::vector<int>::const_iterator end = sp.getList().end();
+
+	newList.addMultipleNumbersAtOnce(begin, end);
+	newList.addMultipleNumbersAtOnce(begin, end - 1);
+
 	std::cout << "New list:\n" << newList << std::endl;
-	std::cout << "New list:\n" << sp << std::endl;
 
 	std::cout << "Shortest span: [" << newList.shortestSpan() << "]" << std::endl;
 	std::cout << "Longest span:  [" << newList.longestSpan() << "]" << std::endl;
