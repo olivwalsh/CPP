@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 21:01:25 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/04 14:17:49 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/04 18:36:12 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define SPAN_HPP
 
 # include <iostream>
-# include <list>
-#include <cstdlib>
+# include <vector>
+# include <cstdlib>
 
 class Span
 {
@@ -26,16 +26,16 @@ class Span
 		
 		Span & operator=(const Span &);
 
-		std::list<int> const & getList() const;
+		std::vector<int> const & getList() const;
 
 		void	addNumber(int n);
-		void	addMultipleNumbersAtOnce();
+		void	addMultipleNumbersAtOnce(int rangeFrom, int rangeTo);
 		int		shortestSpan();
 		int		longestSpan();
 
 	private:
-		unsigned int	_max_size;
-		std::list<int>	_list;
+		unsigned int		_max_size;
+		std::vector<int>	_list;
 
 	public:
 		class SpanIsFull : public std::exception

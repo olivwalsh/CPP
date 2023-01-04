@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 21:01:28 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/04 14:59:44 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/04 18:35:27 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Span & Span::operator=(const Span &ref)
 	return *this;
 }
 
-std::list<int> const & Span::getList() const
+std::vector<int> const & Span::getList() const
 {
 	return _list;
 }
@@ -51,18 +51,11 @@ int generateRandomNumber(void)
 	return (std::rand() % 100);
 }
 
-void Span::addMultipleNumbersAtOnce()
+void Span::addMultipleNumbersAtOnce(int size, int value)
 {
-	if (_list.size() + 1 > _max_size)
-		throw SpanIsFull();
-
-	unsigned int i = 0;
-	while (i++ < _max_size - _list.size())
-	{
-		int value = generateRandomNumber();
-		this->addNumber(value);
-	}
-	// this->assign(7,100);
+    _list.insert(_list.begin(), size, value);
+    if (_list.size() > _max_size)
+        _list.resize(_max_size);
 }
 
 int Span::shortestSpan()
@@ -73,9 +66,9 @@ int Span::shortestSpan()
 
 	Span tmp(*this);
 
-	tmp._list.sort();
+	std::sort(tmp._list.begin(), tmp._list.end());
 	
-	std::list<int>::const_iterator it;
+	std::vector<int>::const_iterator it;
 	
 	int span = tmp.longestSpan();
 	
@@ -100,7 +93,7 @@ int Span::longestSpan()
 		throw CannotFindSpan();
 
 	Span tmp(*this);
-	tmp._list.sort();
+	std::sort(tmp._list.begin(), tmp._list.end());
 	return (tmp._list.back() - tmp._list.front());
 }
 
@@ -116,7 +109,7 @@ const char * Span::CannotFindSpan::what() const throw()
 
 std::ostream &	operator<<(std::ostream &o, Span const &ref)
 {
-	std::list<int>::const_iterator	it = ref.getList().begin();
+	std::vector<int>::const_iterator it = ref.getList().begin();
 
 	o << "[ ";
 	for (; it != ref.getList().end() ; ++it)

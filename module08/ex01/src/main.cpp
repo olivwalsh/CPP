@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 21:01:14 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/04 14:36:49 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/04 18:33:46 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main(void)
 	std::cout << BLUE("Test: ") << "Now adding more numbers one by one:" << std::endl;
 	sp.addNumber(3);
 	sp.addNumber(17);
-	sp.addNumber(3);
+	sp.addNumber(7);
 	sp.addNumber(11);
 	std::cout << sp << std::endl;
 	try
@@ -73,8 +73,11 @@ int main(void)
 	
 	std::cout << BLUE("Lets create a new list and add multiple numbers at once:") << std::endl;
 	Span newList(10);
-	newList.addMultipleNumbersAtOnce();
+	
+	newList.addMultipleNumbersAtOnce(2, 5);
+	sp.addMultipleNumbersAtOnce(2, 5);
 	std::cout << "New list:\n" << newList << std::endl;
+	std::cout << "New list:\n" << sp << std::endl;
 
 	std::cout << "Shortest span: [" << newList.shortestSpan() << "]" << std::endl;
 	std::cout << "Longest span:  [" << newList.longestSpan() << "]" << std::endl;
