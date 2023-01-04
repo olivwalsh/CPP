@@ -4,7 +4,7 @@ GREEN		= "\033[1;32m"
 RESET		= "\033[m"
 
 # Variables
-NAME 		= template
+NAME 		= span
 CXX 		= c++ 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
 
