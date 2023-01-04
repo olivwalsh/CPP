@@ -17,7 +17,8 @@ OBJDIR 		= objs/
 INCDIR		= inc/
 SRCDIR		= src/
 
-SRC			=	main.cpp
+SRC			=	main.cpp \
+				Span.cpp
 
 OBJ 		= $(addprefix ${OBJDIR}, ${SRC:.cpp=.o})
 INC 		= -I./${INCDIR}

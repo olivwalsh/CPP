@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 21:01:25 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/04 12:16:30 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/04 14:17:49 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <list>
+#include <cstdlib>
 
 class Span
 {
@@ -25,7 +26,10 @@ class Span
 		
 		Span & operator=(const Span &);
 
+		std::list<int> const & getList() const;
+
 		void	addNumber(int n);
+		void	addMultipleNumbersAtOnce();
 		int		shortestSpan();
 		int		longestSpan();
 
@@ -43,5 +47,7 @@ class Span
 			virtual const char * what() const throw();	
 		};
 };
+
+std::ostream &	operator<<(std::ostream &, Span const &);
 
 #endif
