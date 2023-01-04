@@ -6,7 +6,7 @@
 /*   By: owalsh <owalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 21:01:35 by owalsh            #+#    #+#             */
-/*   Updated: 2023/01/04 11:50:49 by owalsh           ###   ########.fr       */
+/*   Updated: 2023/01/04 17:48:54 by owalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ int main()
     print(vector, -3);
     print(vector, 3);
 
-	std::deque<int> deck;
+	// std::deque<int> deck;
 
-   	deck.push_back(1);
-	deck.push_back(2);
-	deck.push_back(3);
+   	// deck.push_back(1);
+	// deck.push_back(2);
+	// deck.push_back(3);
 	
-	std::cout << BLUE("Testing easyfind for deck container") << std::endl;
-    print(deck, 5);
-    print(deck, 1);
-    print(deck, 42);
+	// std::cout << BLUE("Testing easyfind for deck container") << std::endl;
+    // print(deck, 5);
+    // print(deck, 1);
+    // print(deck, 42);
 	
     return 0;
 }
